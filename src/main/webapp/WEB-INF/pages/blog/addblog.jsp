@@ -39,16 +39,21 @@
 <script>
 
     $("#subtn").click(function () {
-        $.post("/newblog", {
-            "title": $("#add_title").val(),
-            "des": $("#add_des").val(),
-            "context": $("#add_content").val(),
-            "userId": $.cookie("userId")
-        }, function (result) {
-            alert(result);
-            if (result.errorCode == 0) {
-                alert(result.message);
-                location.href = "/blogpage/" + $.cookie("userId")
+        $.ajax({
+            type: "get",
+            url: "/newblog",
+            data: {
+                "title": $("#add_title").val(),
+                "des": $("#add_des").val(),
+                "content": $("#add_content").val(),
+                "userId": $.cookie("userId")
+            },
+            success: function (result) {
+                alert(result);
+                if (result.errorCode == 0) {
+                    alert(result.message);
+                    location.href = "/blogpage/" + $.cookie("userId")
+                }
             }
         })
     })

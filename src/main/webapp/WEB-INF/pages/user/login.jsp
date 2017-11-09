@@ -79,7 +79,7 @@
 
 
     $("#r").click(function () {
-        location.href = "/register?username=张三&password=123"
+        location.href = "/register"
     })
 
 </script>

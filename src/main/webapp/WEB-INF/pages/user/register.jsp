@@ -24,43 +24,38 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             <h3 class="panel-title">
-                注册 ${username}
+                注册
             </h3>
         </div>
         <div class="panel-body">
-            <form>
+            <form action="/registerUser" method="post">
                 <div class="form-group">
                     <label for="regname">用户名</label>
-                    <input type="text" class="form-control" id="regname" placeholder="请输入用户名" value="${username}">
+                    <input type="text" name="username" class="form-control" id="regname" placeholder="请输入用户名">
                 </div>
                 <div class="form-group">
                     <label for="regpass">密码</label>
-                    <input type="password" class="form-control" id="regpass" placeholder="请输入密码">
+                    <input type="password" name="password" class="form-control" id="regpass" placeholder="请输入密码">
                 </div>
                 <div class="form-group">
                     <label for="regpassre">重复密码</label>
-                    <input type="password" class="form-control" id="regpassre" placeholder="请再次输入密码">
+                    <input type="password" name="password1" class="form-control" id="regpassre" placeholder="请再次输入密码">
                 </div>
                 <div class="form-group">
                     <label for="regtel">电话</label>
-                    <input type="text" class="form-control" id="regtel" placeholder="请输入常用电话">
+                    <input type="text" name="tel" class="form-control" id="regtel" placeholder="请输入常用电话">
                 </div>
                 <div class="form-group">
                     <label for="regaddress">地址</label>
-                    <input type="text" class="form-control" id="regaddress" placeholder="请输入常用地址">
+                    <input type="text" name="address" class="form-control" id="regaddress" placeholder="请输入常用地址">
                 </div>
-                <button type="button" class="btn btn-default" id="submitbtn">提交注册</button>
+                <button type="submit" class="btn btn-default" id="submitbtn">提交注册</button>
             </form>
         </div>
     </div>
 </div>
 
-<script>
-    $("#submitbtn").click(function () {
-        location.href = "/login"
-    })
 
-</script>
 
 </body>
 

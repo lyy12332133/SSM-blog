@@ -36,12 +36,13 @@
         <div class="collapse navbar-collapse" id="nav-1">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-                <li><a href="/addblog/${user.id}">新建博客</a></li>
+                <li><a href="/addblog">新建博客</a></li>
             </ul>
 
-            <form class="navbar-form navbar-left" action="#">
+            <form class="navbar-form navbar-left" action="/fuzzyQuery" method="post">
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="输入搜索的内容">
+                    <input type="hidden" name="userId" value="${cookie.userId.value}">
+                    <input name="condition" type="text" class="form-control" placeholder="输入搜索的内容">
                 </div>
                 <button type="submit" class="btn btn-default">提交</button>
             </form>

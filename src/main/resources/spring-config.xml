@@ -14,6 +14,10 @@
     <!-- springmvc第一条: 将静态资源的处理交由web应用服务器处理,springmvc不处理 -->
     <mvc:default-servlet-handler/>
 
+    <mvc:resources mapping="js/**" location="/resources/js/"/>
+    <mvc:resources mapping="images/**" location="/resources/images/"/>
+    <mvc:resources mapping="css/**" location="/resources/css/"/>
+
     <!-- springmvc第二条: 配置视图解析规则 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <!-- 配置视图解析的前缀 -->

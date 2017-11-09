@@ -12,4 +12,8 @@ public interface UserMapper {
      * @return 用户对象
      */
     User findByName(String username);
+
+    User findByUser(User user);
+
+    int register(User user);
 }

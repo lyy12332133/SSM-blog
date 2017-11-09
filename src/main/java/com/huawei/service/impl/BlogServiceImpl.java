@@ -14,7 +14,7 @@ import java.util.List;
  * Created by dllo on 17/11/8.
  */
 @Service("blogService")
-public class BlogServiceImpl implements BlogService{
+public class BlogServiceImpl implements BlogService {
 
     @Autowired
     @Qualifier("blogMapper")
@@ -30,5 +30,21 @@ public class BlogServiceImpl implements BlogService{
 
     public int addBlog(Blog blog) {
         return blogMapper.addBlog(blog);
+    }
+
+    public int deleteBlog(Blog blog) {
+        return blogMapper.deleteBlog(blog);
+    }
+
+    public List<Blog> findByTitle(Blog blog) {
+        return blogMapper.findByTitle(blog);
+    }
+
+    public List<Blog> findByDes(Blog blog) {
+        return blogMapper.findByDes(blog);
+    }
+
+    public List<Blog> findByContent(Blog blog) {
+        return blogMapper.findByContent(blog);
     }
 }

@@ -22,4 +22,12 @@ public class UserServiceImpl implements UserService{
     public User findByName(String username) {
         return userMapper.findByName(username);
     }
+
+    public User findByUser(User user) {
+        return userMapper.findByUser(user);
+    }
+
+    public int register(User user) {
+        return userMapper.register(user);
+    }
 }

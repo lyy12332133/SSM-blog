@@ -31,4 +31,31 @@
         INSERT INTO b_blog (title,des,content,userId)
         VALUES (#{title},#{des},#{content},#{userId})
     </insert>
+
+    <delete id="deleteBlog"
+            parameterType="com.huawei.domain.Blog">
+        DELETE FROM b_blog WHERE id=#{id}
+    </delete>
+
+    <select id="findByContent"
+            parameterType="com.huawei.domain.Blog"
+            resultMap="blogMap">
+        SELECT *
+        FROM b_blog
+        WHERE content LIKE "%"#{content}"%" AND userId = #{userId}
+    </select>
+    <select id="findByTitle"
+            parameterType="com.huawei.domain.Blog"
+            resultMap="blogMap">
+        SELECT *
+        FROM b_blog
+        WHERE title LIKE "%"#{title}"%" AND userId = #{userId}
+    </select>
+    <select id="findByDes"
+            parameterType="com.huawei.domain.Blog"
+            resultMap="blogMap">
+        SELECT *
+        FROM b_blog
+        WHERE des LIKE "%"#{des}"%" AND userId = #{userId}
+    </select>
 </mapper>

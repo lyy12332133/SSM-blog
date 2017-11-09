@@ -23,4 +23,18 @@
         WHERE username = #{value}
     </select>
 
+    <select id="findByUser"
+            parameterType="com.huawei.domain.User"
+            resultMap="userMap">
+        SELECT *
+        FROM b_user
+        WHERE username = #{username}
+        AND password = #{password}
+    </select>
+
+    <insert id="register"
+            parameterType="com.huawei.domain.User">
+        INSERT INTO b_user (username,password,level,des,tel,address)
+        VALUES (#{username},#{password},#{level},#{des},#{tel},#{address})
+    </insert>
 </mapper>
