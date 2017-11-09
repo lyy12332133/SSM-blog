@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huawei.mapper.BlogMapper">
+    <resultMap id="blogMap" type="com.huawei.domain.Blog">
+        <id column="id" property="id"/>
+        <result column="title" property="title"/>
+        <result column="des" property="des"/>
+        <result column="content" property="content"/>
+        <result column="userId" property="userId"/>
+    </resultMap>
+
+    <select id="findByUid"
+            parameterType="int"
+            resultMap="blogMap">
+        SELECT *
+        FROM b_blog
+        WHERE userId = #{value}
+    </select>
+
+    <select id="findSingle"
+            parameterType="int"
+            resultMap="blogMap">
+        SELECT *
+        FROM b_blog
+        WHERE id = #{value}
+    </select>
+
+    <insert id="addBlog"
+            parameterType="com.huawei.domain.Blog">
+        INSERT INTO b_blog (title,des,content,userId)
+        VALUES (#{title},#{des},#{content},#{userId})
+    </insert>
+</mapper>

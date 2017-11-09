@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huawei.mapper.UserMapper">
+
+    <resultMap id="userMap" type="com.huawei.domain.User">
+        <id column="id" property="id"/>
+        <!-- 定义普通属性列 -->
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="level" property="level"/>
+        <result column="des" property="des"/>
+        <result column="tel" property="tel"/>
+        <result column="address" property="address"/>
+    </resultMap>
+
+    <!-- 根据名字查找对应用户 -->
+    <select id="findByName"
+            parameterType="java.lang.String"
+            resultMap="userMap">
+        SELECT *
+        FROM b_user
+        WHERE username = #{value}
+    </select>
+
+</mapper>
